@@ -1,4 +1,4 @@
-# Clinix — Clinic Appointment & Patient Management System
+[# Clinix — Clinic Appointment & Patient Management System
 
 **Developed by:**
 
@@ -280,5 +280,5 @@ Before using this system in a real environment:
 
 Clinix was created to make clinic operations easier and more organized. It simplifies appointment scheduling, improves record management, and provides a smooth experience for both staff and patients.
 
-We hope this system helps demonstrate how technology can improve healthcare services.
+We hope this system helps demonstrate how technology can improve healthcare services.](https://github.com/Alen332/Clinix)
 
