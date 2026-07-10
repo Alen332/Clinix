@@ -2,8 +2,7 @@
 
 **Developed by:**
 
-* Gerald
-* Alen M. Cervantes
+* Gerald Alen M. Cervantes
 * Zelwyn Kael Escober
 
 ---
