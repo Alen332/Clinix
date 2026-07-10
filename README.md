@@ -1,69 +1,284 @@
 # Clinix — Clinic Appointment & Patient Management System
 
-A full PHP + MySQL (phpMyAdmin) + Bootstrap 5 system with three portals:
-Patient, Doctor, and Admin/Receptionist.
+**Developed by:**
 
-## 1. Requirements
-- XAMPP / WAMP / MAMP (or any Apache + PHP 8+ + MySQL stack)
-- A browser
+* Gerald Alen M. Cervantes
+* Zelwyn Kael Escober
 
-## 2. Setup
+---
 
-1. Copy the entire `clinix` folder into your server's web root:
-   - XAMPP: `C:\xampp\htdocs\clinix` (Windows) or `/Applications/XAMPP/htdocsclinix` (Mac)
-   - WAMP: `C:\wamp64\www\clinix`
-2. Start **Apache** and **MySQL** from your XAMPP/WAMP control panel.
-3. Open **phpMyAdmin** (usually `http://localhost/phpmyadmin`).
-4. Click **Import**, choose the file `clinix.sql` from this folder, and click **Go**.
-   This creates the `clinix` database with all tables and demo data.
-5. Open `config/db.php` and update the credentials if needed:
+## About the System
+
+Clinix is a simple and user-friendly clinic management system built using **PHP, MySQL (phpMyAdmin), and Bootstrap 5**. It is designed to help clinics manage appointments, patient records, and schedules efficiently.
+
+The system includes three main user portals:
+
+* **Patient** – for booking and managing appointments
+* **Doctor** – for handling schedules and patient records
+* **Admin/Receptionist** – for overall management and monitoring
+
+---
+
+## System Requirements
+
+To run this system, you will need:
+
+* XAMPP / WAMP / MAMP (or any Apache + PHP 8+ + MySQL setup)
+* A web browser (Chrome, Edge, etc.)
+
+---
+
+## Installation Guide
+
+Follow these steps to set up the system:
+
+1. Copy the `clinix` folder into your server's web directory:
+
+   * XAMPP: `C:\xampp\htdocs\clinix`
+   * WAMP: `C:\wamp64\www\clinix`
+
+2. Open your XAMPP/WAMP control panel and start:
+
+   * Apache
+   * MySQL
+
+3. Go to **phpMyAdmin**:
+
+   * Open: `http://localhost/phpmyadmin`
+
+4. Import the database:
+
+   * Click **Import**
+   * Select the file `clinix.sql`
+   * Click **Go**
+
+   This will automatically create the database and tables with sample data.
+
+5. Configure the database connection:
+
+   * Open `config/db.php`
+   * Update if needed:
+
    ```php
    $DB_HOST = 'localhost';
    $DB_NAME = 'clinix';
    $DB_USER = 'root';
-   $DB_PASS = '';   // your MySQL root password, blank by default on XAMPP
+   $DB_PASS = '';
    ```
-6. Visit `http://localhost/clinix/` in your browser.
 
-## 3. Demo accounts
-All seeded accounts use the password: **password123**
+6. Run the system:
 
-| Role         | Email                          |
-|--------------|---------------------------------|
-| Admin        | admin@clinix.com                |
-| Doctor       | maria.santos@clinix.com         |
-| Doctor       | juan.delacruz@clinix.com        |
-| Receptionist | ana.reyes@clinix.com            |
-| Patient      | pedro.gonzales@example.com      |
+   * Open your browser and go to:
+     `http://localhost/clinix/`
 
-New patients can also self-register from the login page.
+---
 
-## 4. Folder structure
+## Demo Accounts
+
+You can log in using the following accounts:
+
+**Password for all accounts:** `password123`
+
+| Role         | Email                                                           |
+| ------------ | --------------------------------------------------------------- |
+| Admin        | [admin@clinix.com](mailto:admin@clinix.com)                     |
+| Doctor       | [maria.santos@clinix.com](mailto:maria.santos@clinix.com)       |
+| Doctor       | [juan.delacruz@clinix.com](mailto:juan.delacruz@clinix.com)     |
+| Receptionist | [ana.reyes@clinix.com](mailto:ana.reyes@clinix.com)             |
+| Patient      | [pedro.gonzales@example.com](mailto:pedro.gonzales@example.com) |
+
+New users can also register as a patient on the login page.
+
+---
+
+## Folder Structure
+
 ```
 clinix/
-├── clinix.sql              -> Import this in phpMyAdmin
+├── clinix.sql
 ├── config/
-│   ├── db.php               -> Database connection (edit credentials here)
-│   └── auth.php             -> Session/auth helpers
-├── includes/                -> Shared header/sidebar/footer templates
-├── assets/css/style.css     -> Theme (green/gold palette)
-├── index.php                -> Login page
-├── register.php             -> Patient self-registration
+│   ├── db.php
+│   └── auth.php
+├── includes/
+├── assets/css/style.css
+├── index.php
+├── register.php
 ├── logout.php
-├── patient/                 -> Patient portal (book, view, cancel appointments, records, profile)
-├── doctor/                  -> Doctor portal (schedule, patients, add medical records)
-└── admin/                   -> Admin/Receptionist portal (CRUD patients, doctors, schedules, reports)
+├── patient/
+├── doctor/
+└── admin/
 ```
 
-## 5. Features included
-- Registration & login with hashed passwords (bcrypt), role-based access
-- Patient: book appointments against real doctor availability (auto-generated time slots), view/cancel appointments, view medical records, edit profile
-- Doctor: manage weekly availability, confirm/cancel appointments, add diagnosis/prescription/lab results which mark a visit completed
-- Admin/Receptionist: full CRUD on patients, doctors/staff, schedules; manual appointment booking; reports & analytics dashboard with charts (Chart.js) using the green/gold/red theme
-- Responsive Bootstrap 5 UI with a custom sidebar layout, mobile offcanvas menu, and status badges
+---
 
-## 6. Notes for going to production
-- Change all demo passwords immediately.
-- Set a strong, unique `$DB_PASS` in `config/db.php` and restrict DB user privileges.
-- Serve over HTTPS.
-- Consider adding real SMS/email notifications (e.g. via Twilio / PHPMailer) — the schema and workflow already support "Confirmed / Cancelled" state changes that could trigger such notifications.
+## Key Features
+
+* Secure login and registration (with encrypted passwords)
+* Role-based access (Patient, Doctor, Admin)
+* Appointment booking based on doctor availability
+* Patient medical records tracking
+* Doctor schedule management
+* Admin dashboard with reports and analytics (Chart.js)
+* Clean and responsive design using Bootstrap 5
+
+---
+
+## Important Notes
+
+Before using this system in a real environment:
+
+* Change all default passwords
+* Set a strong database password in `db.php`
+* Use HTTPS for security
+* You may add features like SMS or email notifications for appointments
+
+---
+
+## Final Thoughts
+
+Clinix was created to make clinic operations easier and more organized. It simplifies appointment scheduling, improves record management, and provides a smooth experience for both staff and patients.
+
+We hope this system helps demonstrate how technology can improve healthcare services.
+# Clinix — Clinic Appointment & Patient Management System
+
+**Developed by:**
+
+* Gerald
+* Alen M. Cervantes
+* Zelwyn Kael Escober
+
+---
+
+## About the System
+
+Clinix is a simple and user-friendly clinic management system built using **PHP, MySQL (phpMyAdmin), and Bootstrap 5**. It is designed to help clinics manage appointments, patient records, and schedules efficiently.
+
+The system includes three main user portals:
+
+* **Patient** – for booking and managing appointments
+* **Doctor** – for handling schedules and patient records
+* **Admin/Receptionist** – for overall management and monitoring
+
+---
+
+## System Requirements
+
+To run this system, you will need:
+
+* XAMPP / WAMP / MAMP (or any Apache + PHP 8+ + MySQL setup)
+* A web browser (Chrome, Edge, etc.)
+
+---
+
+## Installation Guide
+
+Follow these steps to set up the system:
+
+1. Copy the `clinix` folder into your server's web directory:
+
+   * XAMPP: `C:\xampp\htdocs\clinix`
+   * WAMP: `C:\wamp64\www\clinix`
+
+2. Open your XAMPP/WAMP control panel and start:
+
+   * Apache
+   * MySQL
+
+3. Go to **phpMyAdmin**:
+
+   * Open: `http://localhost/phpmyadmin`
+
+4. Import the database:
+
+   * Click **Import**
+   * Select the file `clinix.sql`
+   * Click **Go**
+
+   This will automatically create the database and tables with sample data.
+
+5. Configure the database connection:
+
+   * Open `config/db.php`
+   * Update if needed:
+
+   ```php
+   $DB_HOST = 'localhost';
+   $DB_NAME = 'clinix';
+   $DB_USER = 'root';
+   $DB_PASS = '';
+   ```
+
+6. Run the system:
+
+   * Open your browser and go to:
+     `http://localhost/clinix/`
+
+---
+
+## Demo Accounts
+
+You can log in using the following accounts:
+
+**Password for all accounts:** `password123`
+
+| Role         | Email                                                           |
+| ------------ | --------------------------------------------------------------- |
+| Admin        | [admin@clinix.com](mailto:admin@clinix.com)                     |
+| Doctor       | [maria.santos@clinix.com](mailto:maria.santos@clinix.com)       |
+| Doctor       | [juan.delacruz@clinix.com](mailto:juan.delacruz@clinix.com)     |
+| Receptionist | [ana.reyes@clinix.com](mailto:ana.reyes@clinix.com)             |
+| Patient      | [pedro.gonzales@example.com](mailto:pedro.gonzales@example.com) |
+
+New users can also register as a patient on the login page.
+
+---
+
+## Folder Structure
+
+```
+clinix/
+├── clinix.sql
+├── config/
+│   ├── db.php
+│   └── auth.php
+├── includes/
+├── assets/css/style.css
+├── index.php
+├── register.php
+├── logout.php
+├── patient/
+├── doctor/
+└── admin/
+```
+
+---
+
+## Key Features
+
+* Secure login and registration (with encrypted passwords)
+* Role-based access (Patient, Doctor, Admin)
+* Appointment booking based on doctor availability
+* Patient medical records tracking
+* Doctor schedule management
+* Admin dashboard with reports and analytics (Chart.js)
+* Clean and responsive design using Bootstrap 5
+
+---
+
+## Important Notes
+
+Before using this system in a real environment:
+
+* Change all default passwords
+* Set a strong database password in `db.php`
+* Use HTTPS for security
+* You may add features like SMS or email notifications for appointments
+
+---
+
+## Final Thoughts
+
+Clinix was created to make clinic operations easier and more organized. It simplifies appointment scheduling, improves record management, and provides a smooth experience for both staff and patients.
+
+We hope this system helps demonstrate how technology can improve healthcare services.
+
